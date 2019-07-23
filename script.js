@@ -209,7 +209,7 @@ function play() {
                     if ((mousePosX > squares2DArray[i][j].x && mousePosX < squares2DArray[i][j].xRange) && (mousePosY > squares2DArray[i][j].y && mousePosY < squares2DArray[i][j].yRange)) {
 
                         ctx.fillStyle = "black";
-                        ctx.font = `${center * 2 + center}px Arial`;
+                        ctx.font = `${center * 2 + center}px vampirFont`;
                         ctx.fillText("X", squares2DArray[i][j].x + center, squares2DArray[i][j].y + center * 3);
                         ctx.stroke();
                         squares2DArray[i].splice(j, 1, "1X");
@@ -230,13 +230,9 @@ function play() {
                 for (let j = 0; j < squares2DArray[i].length; j++) {
                     if ((mousePosX > squares2DArray[i][j].x && mousePosX < squares2DArray[i][j].xRange) && (mousePosY > squares2DArray[i][j].y && mousePosY < squares2DArray[i][j].yRange)) {
 
-                        ctx.beginPath();
-                        ctx.lineWidth = lineWidth;
-                        ctx.arc(squares2DArray[i][j].x + (center * 2), squares2DArray[i][j].y + (center * 2), center, 0, 2 * Math.PI);
-                        ctx.fillStyle = "white";
-                        ctx.fill();
-                        ctx.closePath();
-                        ctx.strokeStyle = "black";
+                        ctx.fillStyle = "black";
+                        ctx.font = `${center * 2 + center}px vampirFont`;
+                        ctx.fillText("O", squares2DArray[i][j].x + center, squares2DArray[i][j].y + center * 3);
                         ctx.stroke();
                         squares2DArray[i].splice(j, 1, "1O");
 
@@ -260,7 +256,7 @@ function play() {
                 ctx.fillStyle = "white";
                 ctx.fillRect(0, 0, 330, 330);
                 ctx.textAlign = "center";
-                ctx.font = "50px Arial";
+                ctx.font = "50px vampirFont";
                 ctx.fillStyle = "black";
                 ctx.fillText(whoWon, 165, 175.5);
             }, 1250);
@@ -279,7 +275,7 @@ function play() {
                 ctx.fillStyle = "white";
                 ctx.fillRect(0, 0, 330, 330);
                 ctx.textAlign = "center";
-                ctx.font = "50px Arial";
+                ctx.font = "50px vampirFont";
                 ctx.fillStyle = "black";
                 ctx.fillText("It's a draw!", 165, 175.5);
             }, 1250);
