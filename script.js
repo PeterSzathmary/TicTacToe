@@ -4,21 +4,7 @@
     B* = bool
 */
 
-/* class for square for background in canvas */
-class Tile {
-  constructor(_x, _y, _width, _height) {
-    this.x = _x;
-    this.y = _y;
-
-    this.width = _width;
-    this.height = _height;
-
-    this.xRange = this.x + this.width;
-    this.yRange = this.y + this.height;
-  }
-}
-
-/* canvas */
+//#region Canvas
 const canvas = window.document.createElement("canvas");
 canvas.id = "canvas";
 canvas.width = "330";
@@ -27,22 +13,26 @@ canvas.style.position = "absolute";
 canvas.style.top = "0px";
 canvas.style.left = "0px";
 canvas.style.backgroundColor = "white";
+//#endregion
 
-/* again? h1*/
+//#region again? h1
 const again = window.document.createElement("h1");
 again.className = "background-child";
 again.textContent = "Again?";
 again.style.marginTop = "99px";
+//#endregion
 
-/* h3 Yes - No */
+//#region h3 Yes - No
 const YorN = window.document.createElement("h3");
 YorN.className = "background-child";
 YorN.innerHTML =
   "<span id='yes;' onclick='reloadPage();'>Yes</span> - <span id='no;' onclick='endGame();'>No</span>";
+//#endregion
 
 const ctx /* context */ = canvas.getContext("2d");
 
-let game5 = [
+//#region Boards
+const game5 = [
   [1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1],
@@ -50,7 +40,7 @@ let game5 = [
   [1, 1, 1, 1, 1]
 ];
 
-let game10 = [
+const game10 = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -62,6 +52,7 @@ let game10 = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
+//#endregion
 
 /* options[0] = 5x5 | options[1] = 10x10 */
 const options = [];
@@ -312,7 +303,7 @@ function play() {
   });
 }
 
-/* checks for victory */
+/** Checks for victory. */
 function victory() {
   /* this checks rows */
   for (let i = 0; i < squares2DArray.length; i++) {
@@ -423,10 +414,14 @@ function victory() {
   }
 }
 
+/** Reloads page. */
 function reloadPage() {
   window.location.reload();
 }
 
+/**
+ * Game ends.
+ */
 function endGame() {
   again.remove();
   YorN.style.marginTop = "132px";
